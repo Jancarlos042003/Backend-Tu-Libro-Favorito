@@ -15,11 +15,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
-    private String nombre;
-    
-    @Column(nullable = false)
-    private String apellido;
+    @Column(name = "nombre_completo", nullable = false)
+    private String nombreCompleto;
     
     @Column(nullable = false)
     private String direccion;
@@ -33,14 +30,9 @@ public class Usuario {
     @Column(nullable = false)
     private String contrasenia;
     
-    @Column(name = "fecha_nacimiento")
-    private LocalDate fechaNacimiento;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_rol", nullable = false)
-    private Rol rol;
-    
-    
+    @Column(name = "is_admin", nullable = false)
+    private boolean isAdmin = false; 
+ 
     @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
     

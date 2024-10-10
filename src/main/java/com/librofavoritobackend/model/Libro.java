@@ -48,7 +48,7 @@ public class Libro {
     private Set<Autor> autores;
     
     @ManyToOne
-    @JoinColumn(name = "id_editorial")
+    @JoinColumn(name = "id_editorial", nullable = false)
     private Editorial editorial;
     
     @OneToOne(mappedBy = "libro")   

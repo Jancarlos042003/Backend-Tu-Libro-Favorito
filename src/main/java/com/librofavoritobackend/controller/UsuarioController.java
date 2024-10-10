@@ -35,6 +35,7 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<?> saveUsuario(@RequestBody Usuario usuario) {
         try {
+            usuario.setAdmin(usuario.isAdmin());
             return ResponseEntity.ok(usuarioService.saveUsuario(usuario));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

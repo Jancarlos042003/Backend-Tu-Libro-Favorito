@@ -14,7 +14,7 @@ public class Editorial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String nombre;
     
     @OneToMany(mappedBy = "editorial")

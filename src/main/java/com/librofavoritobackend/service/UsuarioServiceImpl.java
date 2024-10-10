@@ -3,7 +3,6 @@ package com.librofavoritobackend.service;
 
 import com.librofavoritobackend.model.Usuario;
 import com.librofavoritobackend.repository.UsuarioRepository;
-import jakarta.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
