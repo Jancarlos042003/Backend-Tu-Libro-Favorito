@@ -2,16 +2,16 @@
 package com.librofavoritobackend.service;
 
 import com.librofavoritobackend.model.Autor;
-import com.librofavoritobackend.repository.AutoRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import com.librofavoritobackend.repository.AutorRepository;
 
 @Service
 public class AutorServiceImpl implements AutorService{
     
-   private final AutoRepository autorRepository;
+   private final AutorRepository autorRepository;
 
-    public AutorServiceImpl(AutoRepository autorRepository) {
+    public AutorServiceImpl(AutorRepository autorRepository) {
         this.autorRepository = autorRepository;
     }   
     

@@ -31,6 +31,22 @@ public class Libro {
     @Column(nullable = false)
     private BigDecimal descuento;
     
+    @Column(nullable = false, length = 500)
+    private String descripcion;
+    
+    @Column(nullable = false, length = 1000)
+    private String resumen;
+    
+    @Column(name = "vista_previa", nullable = false, length = 5000)
+    @Lob //para manejar campos de textos largos
+    private String vistaPrevia;
+    
+    @Column(name = "img_portada", nullable = false)
+    private String imgPortada;
+    
+    @Column(name = "img_subportada", nullable = false)
+    private String imgSubportada;
+    
     @ManyToMany
     @JoinTable(
         name = "libros_categorias",
@@ -39,31 +55,17 @@ public class Libro {
     )
     private Set<Categoria> categorias;
     
-    @ManyToMany
-    @JoinTable(
-        name = "libros_autores",
-        joinColumns = @JoinColumn(name = "id_libro"),
-        inverseJoinColumns = @JoinColumn(name = "id_autor")
-    )
-    private Set<Autor> autores;
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
+    private Autor autor;
     
     @ManyToOne
     @JoinColumn(name = "id_editorial", nullable = false)
     private Editorial editorial;
     
-    @OneToOne(mappedBy = "libro")   
-    private DetalleLibro detalleLibro;
-    
     @OneToMany(mappedBy = "libro")
     private Set<Resenia> resenias;
-    
-    @OneToMany(mappedBy = "libro")
-    private Set<DetallePedido> detallePedidos;
-    
-    @OneToMany(mappedBy = "libro")
-    private Set<DetalleCompra> detalleCompras;
 
-    @ManyToOne
-    @JoinColumn(name = "id_inventario", nullable = false)
+    @OneToOne(mappedBy = "libro")
     private Inventario inventario; 
 }

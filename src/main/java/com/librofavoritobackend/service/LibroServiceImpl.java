@@ -13,7 +13,7 @@ public class LibroServiceImpl implements LibroService {
     
     @Autowired
     private LibroRepository libroRepository;
-    
+      
     @Override
     public List<Libro> findAll() {
         return libroRepository.findAll();
@@ -25,13 +25,13 @@ public class LibroServiceImpl implements LibroService {
     }
     
     @Override
-    public Libro save(Libro libro) {
+    public Libro save(Libro libro) {  
         return libroRepository.save(libro);
     }
     
     @Override
     public void deleteById(Long id) {
-        if (!libroRepository.existsById(id)) {
+        if (!libroRepository.existsById(id)){ 
             throw new ResourceNotFoundException("Libro no encontrado con id: " + id);
         }
         libroRepository.deleteById(id);

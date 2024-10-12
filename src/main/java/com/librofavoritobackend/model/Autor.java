@@ -3,7 +3,6 @@ package com.librofavoritobackend.model;
 
 import lombok.Data;
 import jakarta.persistence.*;
-import java.util.Set;
 
 @Data
 @Entity
@@ -15,11 +14,5 @@ public class Autor {
     private Long id;
     
     @Column(nullable = false)
-    private String nombre;
-    
-    @Column(nullable = false)
-    private String apellido;
-    
-    @ManyToMany(mappedBy = "autores")
-    private Set<Libro> libros;
+    private String nombreCompleto;
 }

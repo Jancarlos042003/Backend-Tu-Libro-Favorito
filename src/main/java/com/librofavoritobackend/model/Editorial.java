@@ -2,7 +2,6 @@
 package com.librofavoritobackend.model;
 
 import jakarta.persistence.*;
-import java.util.Set;
 import lombok.Data;
 
 @Data
@@ -16,7 +15,4 @@ public class Editorial {
     
     @Column(nullable = false)
     private String nombre;
-    
-    @OneToMany(mappedBy = "editorial")
-    private Set<Libro> libros;
 }

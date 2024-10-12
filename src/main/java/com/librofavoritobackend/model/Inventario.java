@@ -3,7 +3,6 @@ package com.librofavoritobackend.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
 import lombok.Data;
 
 @Data
@@ -15,8 +14,9 @@ public class Inventario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToMany(mappedBy = "inventario")
-    private Set<Libro> libro;
+    @OneToOne
+    @JoinColumn(name = "id_libro", nullable = false)
+    private Libro libro;
     
     @Column(nullable = false)
     private int cantidad;

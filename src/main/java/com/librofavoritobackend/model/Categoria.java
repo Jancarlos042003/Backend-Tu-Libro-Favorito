@@ -17,9 +17,6 @@ public class Categoria {
     @Column(nullable = false, unique = true)
     private String nombre;
     
-    @ManyToMany(mappedBy = "categorias")
-    private Set<Libro> libros;
-    
     @OneToMany(mappedBy = "categoria")
     private Set<Subcategoria> subcategorias;
 }
